@@ -1,4 +1,4 @@
-# ccs26-rlwe
+# Large-Universe (Multi-Authority) ABE from LWE
 Source code for the RingLWE constructions for the CCS 2026 (Cycle B) submission.
 
 ## Header Files
