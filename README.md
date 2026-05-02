@@ -1,35 +1,22 @@
 # Large-Universe (Multi-Authority) ABE from LWE
-Source code for the RingLWE constructions for the CCS 2026 (Cycle B) submission.
 
-## Header Files
-Directory: include
+Pseudocode artifact for CCS 2026 (Cycle B), covering Ring-LWE KP-ABE and CP-ABE.
 
-| File	| Description	| Scheme|
-|:--------|:----------|:----------|
-| contextcp.h	| Ring-LWE CP-ABE scheme API	| CP-ABE|
-| contextkp.h	| Ring-LWE KP-ABE scheme API	| KP-ABE|
-| distribution.h	| Header file for the different distributions used by the PQC schemes (Uniform and Gaussians)| 	Both|
-| fieldelement.h	| Field element class, operations on field elements and their spectra (APIs)| 	Both|
-| lwebasetypes.h	| Base types for the ring coefficients and LWE constants. Also, implementations of the low-level mathematical operations.| 	Both|
-| ring.h	| Ring class and parameters| 	Both|
-| ringelement.h	| Ring element class and operations on ring elements| 	Both|
-| trapdoor.h	| Trapdoor generation API and pre-image sampling API| 	Both|
+## Scope
+- In scope: Ring-LWE KP-ABE and CP-ABE .
+- Out of scope: integer-LWE, multi-authority variants, short-key variants.
 
-## Implementation files
-Directory: src
-| File | Description | Scheme |
-|:--------|:----------|:----------|
-| contextcp.cpp	| Ring-LWE CP-ABE scheme	| CP-ABE| 
-| contextkp.cpp	| Ring-LWE KP-ABE scheme	| KP-ABE| 
-| distribution.cpp	| Implementation for the different distributions used by the PQC schemes (Uniform and Gaussians)| Both| 
-| fieldelement.cpp	| Field element and spectra operations| Both| 
-| ring.cpp	| Constructors and setup algorithms for rings| Both| 
-| ringelement.cpp	| Ring element operations| Both| 
-| ringpresets.cpp	| Some helper objects for ring parameters and printing ring elements| Both| 
-| trapdoor.cpp	| Trapdoor generation and pre-image sampling implementations| Both| 
+## What this is
+Library-neutral pseudocode adaptation for reviewer inspection. It omits generic components for parsing, satisfiability checks, secret sharing, hybrid encryption, and key serialization/storage. The code (with the exception of `tools/prime_moduli.cpp`) does not compile.
 
-## Tools
-Directory: tools
-| File | Description | Scheme |
-|:--------|:----------|:----------|
-| prime_moduli.cpp	| Script file to generate and print the prime moduli and parameters needed for the Ring LWE constructions.	| Both| 
+## Files
+- `include/*`: base types, ring, elements, distributions, trapdoor, scheme APIs.
+- `src/*`: pseudocode implementations for ring utilities and KP/CP algorithms.
+- `tools/prime_moduli.cpp`: standalone parameter-generation tool.
+
+## Mapping to paper
+- `ring.*`: ring construction and presets.
+- `distribution.*`: RNG and distribution helpers.
+- `trapdoor.*`: trapdoor generation and sampling.
+- `kpabe.*`: KP-ABE setup/keygen/encrypt/decrypt pseudocode.
+- `cpabe.*`: CP-ABE setup/keygen/encrypt/decrypt pseudocode.
